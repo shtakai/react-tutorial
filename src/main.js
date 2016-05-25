@@ -1,14 +1,35 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import weapons from "./weapons.json"
 
+// raw js
+console.log(weapons);
 
-class Hello extends React.Component {
+class App extends React.Component {
+    constructor(...args){
+        super(...args);
+        this.state = {
+            filterQuery : ""
+        };
+    }
     render() {
-        return <h1>Hello</h1>;
+        return (
+            <div className="weapons">
+                <input />
+                <ul>
+                    {
+                        weapons.map((weapon, index) => {
+                            return (<li key={index}>{weapon.name}</li>);
+                        })
+                    }
+                </ul>
+            </div>
+        );
     }
 }
 
 ReactDOM.render(
-    <Hello />,
+    <App />,
+    // React.createElement(App, {}),
     document.querySelector(".mainContainer")
 );
