@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import {EventEmitter} from "events";
 import weapons from "./weapons.json";
 
-console.log(JSON.stringify(weapons.map((w,i)=>{w.id = i+1;return w;})));
-
 class Weapon extends React.Component {
     render() {
         return (
@@ -48,7 +46,7 @@ class App extends React.Component {
                 <ul>
                     {
                         this.props.weapons.map(weapon => {
-                            return <Weapon key={weapon.name} data={weapon}/>
+                            return <Weapon key={weapon.id} data={weapon}/>
                         })
                     }
                 </ul>
